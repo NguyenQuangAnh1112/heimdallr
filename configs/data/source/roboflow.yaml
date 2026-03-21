@@ -1,0 +1,7 @@
+name: roboflow
+roboflow:
+  workspace: "data-science-173-msp9r"
+  project: "motorcycle-helmet-detection"
+  version: 1
+  format: "yolov8"
+  api_key_env: "ROBOFLOW_API_KEY"
