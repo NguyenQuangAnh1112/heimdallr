@@ -1,7 +1,0 @@
-defaults:
-  - source@data.source: roboflow
-  - paths@data.paths: local
-  - _self_
-
-data:
-  name: "motorcycle-helmet-detection"

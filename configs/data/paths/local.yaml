@@ -1,3 +1,0 @@
-raw_dir: "data/raw"
-download_dir: "data/raw/roboflow"
-processed_dir: "data/processed"
