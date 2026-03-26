@@ -1,0 +1,9 @@
+_target_: src.components.data_ingestion.download_data
+
+api_key: ${oc.env:ROBOFLOW_API_KEY}
+workspace: bike-helmets
+project: bike-helmet-detection-2vdjo
+version: 2
+format: yolov8
+
+artifacts_dir: artifacts/1_data_ingestion
