@@ -1,5 +1,5 @@
 api_key: ${oc.env:ROBOFLOW_API_KEY}
-workspace: ata-science-173-msp9r
+workspace: data-science-173-msp9r
 project: motorcycle-helmet-detection
 version: 2
 format: yolov8

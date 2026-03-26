@@ -3,10 +3,10 @@ from pathlib import Path
 
 
 @dataclass
-class DataIngestion:
+class DataIngestionConfig:
     api_key: str
     workspace: str
     project: str
-    version: str
+    version: int
     format: str
     artifacts_dir: Path

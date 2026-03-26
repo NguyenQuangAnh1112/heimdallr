@@ -1,8 +1,19 @@
+from pathlib import Path
+
 from roboflow import Roboflow
 
+from src.entity.config_entity import DataIngestionConfig
 
-def download_data(api_key, workspace, project, version, format):
-    rf = Roboflow(api_key=api_key)
-    proj = rf.workspace(workspace).project(project)
-    dataset = proj.version(version).download(format)
-    return dataset.location
+
+class DataIntestion:
+    def __init__(self, config: DataIngestionConfig):
+        self.cfg = config
+
+    def download_data(self):
+        artifacts_dir = Path(self.cfg.artifacts_dir).resolve()
+        rf = Roboflow(api_key=self.cfg.api_key)
+        proj = rf.workspace(self.cfg.workspace).project(self.cfg.project)
+        dataset = proj.version(self.cfg.version).download(
+            self.cfg.format, location=str(artifacts_dir), overwrite=True
+        )
+        return dataset.location
