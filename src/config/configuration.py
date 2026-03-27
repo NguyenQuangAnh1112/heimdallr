@@ -1,10 +1,11 @@
+from os import name
 from pathlib import Path
 
 from dotenv import load_dotenv
 from hydra.utils import to_absolute_path
 from omegaconf import DictConfig
 
-from src.entity.config_entity import DataIngestionConfig
+from src.entity.config_entity import DataIngestionConfig, DataValidationConfig
 
 
 class ConfigurationManager:
@@ -33,4 +34,24 @@ class ConfigurationManager:
             version=int(ingestion_cfg.version),
             format=str(ingestion_cfg.format),
             artifacts_dir=artifacts_dir,
+        )
+
+    def get_data_validation_config(self) -> DataValidationConfig:
+        validation_cfg = self.cfg.data.validation
+        dataset_dir = Path(to_absolute_path(str(validation_cfg.dataset_dir)))
+        train_dir = Path(to_absolute_path(str(validation_cfg.train_dir)))
+        val_dir = Path(to_absolute_path(str(validation_cfg.val_dir)))
+        test_dir = Path(to_absolute_path(str(validation_cfg.test_dir)))
+        return DataValidationConfig(
+            dataset_dir=dataset_dir,
+            train_dir=train_dir,
+            val_dir=val_dir,
+            test_dir=test_dir,
+            num_classes=validation_cfg.num_classes,
+            class_names=validation_cfg.class_names,
+            image_size=validation_cfg.image_size,
+            min_bbox_area=validation_cfg.min_bbox_area,
+            max_bbox_area=validation_cfg.max_bbox_area,
+            check_duplicates=validation_cfg.check_duplicates,
+            check_empty_labels=validation_cfg.check_empty_labels,
         )

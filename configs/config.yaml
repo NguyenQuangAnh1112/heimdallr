@@ -1,3 +1,4 @@
 defaults:
-  - data/ingestion: dataset1
+  - data/ingestion: default
+  - data/validation: default
   - _self_

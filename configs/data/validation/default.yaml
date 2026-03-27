@@ -1,0 +1,15 @@
+dataset_dir: artifacts/1_data_ingestion/dataset1
+train_dir: train/images
+val_dir: valid/images
+test_dir: test/images
+num_classes: 4
+class_names:
+  - full-faced
+  - half-faced
+  - invalid
+  - no helmet
+image_size: 640
+min_bbox_area: 0.0001
+max_bbox_area: 1.0
+check_duplicates: True
+check_empty_labels: True
