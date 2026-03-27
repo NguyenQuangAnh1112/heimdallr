@@ -8,6 +8,7 @@ from src.entity.config_entity import (
     DataIngestionConfig,
     DataTransformationConfig,
     DataValidationConfig,
+    ModelTrainerConfig,
 )
 
 
@@ -66,4 +67,19 @@ class ConfigurationManager:
             test_dir=str(transformation_cfg.get("test_dir", "")),
             image_subdir=str(transformation_cfg.image_subdir),
             label_subdir=str(transformation_cfg.label_subdir),
+        )
+
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        trainer_cfg = self.cfg.model.trainer
+        return ModelTrainerConfig(
+            data_yaml_path=str(to_absolute_path(str(trainer_cfg.data_yaml_path))),
+            model_name=str(trainer_cfg.model_name),
+            model_store_dir=str(to_absolute_path(str(trainer_cfg.model_store_dir))),
+            epochs=int(trainer_cfg.epochs),
+            imgsz=int(trainer_cfg.imgsz),
+            batch=int(trainer_cfg.batch),
+            device=str(trainer_cfg.device),
+            amp=bool(trainer_cfg.get("amp", False)),
+            project_dir=str(to_absolute_path(str(trainer_cfg.project_dir))),
+            run_name=str(trainer_cfg.run_name),
         )

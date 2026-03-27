@@ -35,3 +35,17 @@ class DataTransformationConfig:
     test_dir: str
     image_subdir: str
     label_subdir: str
+
+
+@dataclass
+class ModelTrainerConfig:
+    data_yaml_path: str
+    model_name: str
+    model_store_dir: str
+    epochs: int
+    imgsz: int
+    batch: int
+    device: str
+    amp: bool
+    project_dir: str
+    run_name: str

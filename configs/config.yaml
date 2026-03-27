@@ -2,4 +2,5 @@ defaults:
   - data/ingestion: default
   - data/validation: default
   - data/transformation: default
+  - model/trainer: default
   - _self_

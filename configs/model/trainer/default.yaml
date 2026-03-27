@@ -1,0 +1,10 @@
+data_yaml_path: artifacts/1_data_ingestion/data.yaml
+model_name: yolov8n.pt
+model_store_dir: artifacts/models
+epochs: 50
+imgsz: 640
+batch: 16
+device: cuda
+amp: false
+project_dir: artifacts/4_model_trainer
+run_name: yolo_train
