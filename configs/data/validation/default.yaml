@@ -11,6 +11,6 @@ names:
   - invalid
   - no helmet
 
-report_dir: artifacts/data/validation
+report_dir: artifacts/2_data_validation
 report_file: report.txt
 allow_empty_labels: true
