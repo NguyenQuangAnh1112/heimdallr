@@ -15,14 +15,12 @@ class DataIngestionConfig:
 
 @dataclass
 class DataValidationConfig:
-    dataset_dir: Path
-    train_dir: Path
-    val_dir: Path
-    test_dir: Path
-    num_classes: int
-    class_names: List[str]
-    image_size: int
-    min_bbox_area: float
-    max_bbox_area: float
-    check_duplicates: bool
-    check_empty_labels: bool
+    data_path: str
+    data_file: str
+    train: str
+    val: str
+    test: str
+    names: List[str]
+    report_dir: str
+    report_file: str
+    allow_empty_labels: bool

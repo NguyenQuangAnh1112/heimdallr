@@ -1,4 +1,3 @@
-from os import name
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -38,20 +37,15 @@ class ConfigurationManager:
 
     def get_data_validation_config(self) -> DataValidationConfig:
         validation_cfg = self.cfg.data.validation
-        dataset_dir = Path(to_absolute_path(str(validation_cfg.dataset_dir)))
-        train_dir = Path(to_absolute_path(str(validation_cfg.train_dir)))
-        val_dir = Path(to_absolute_path(str(validation_cfg.val_dir)))
-        test_dir = Path(to_absolute_path(str(validation_cfg.test_dir)))
+        data_path = str(to_absolute_path(str(validation_cfg.data_path)))
         return DataValidationConfig(
-            dataset_dir=dataset_dir,
-            train_dir=train_dir,
-            val_dir=val_dir,
-            test_dir=test_dir,
-            num_classes=validation_cfg.num_classes,
-            class_names=validation_cfg.class_names,
-            image_size=validation_cfg.image_size,
-            min_bbox_area=validation_cfg.min_bbox_area,
-            max_bbox_area=validation_cfg.max_bbox_area,
-            check_duplicates=validation_cfg.check_duplicates,
-            check_empty_labels=validation_cfg.check_empty_labels,
+            data_path=data_path,
+            data_file=str(validation_cfg.data_file),
+            train=str(validation_cfg.train),
+            val=str(validation_cfg.val),
+            test=str(validation_cfg.test or ""),
+            names=list(validation_cfg.names),
+            report_dir=str(to_absolute_path(str(validation_cfg.report_dir))),
+            report_file=str(validation_cfg.report_file),
+            allow_empty_labels=bool(validation_cfg.get("allow_empty_labels", True)),
         )
