@@ -1,0 +1,9 @@
+src_data_path: artifacts/1_data_ingestion
+dst_data_path: artifacts/3_data_transformation
+
+train_dir: train
+val_dir: valid
+test_dir: test
+
+image_subdir: images
+label_subdir: labels

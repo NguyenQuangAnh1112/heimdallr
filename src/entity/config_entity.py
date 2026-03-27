@@ -24,3 +24,14 @@ class DataValidationConfig:
     report_dir: str
     report_file: str
     allow_empty_labels: bool
+
+
+@dataclass
+class DataTransformationConfig:
+    src_data_path: str
+    dst_data_path: str
+    train_dir: str
+    val_dir: str
+    test_dir: str
+    image_subdir: str
+    label_subdir: str

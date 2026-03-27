@@ -2,6 +2,7 @@ import hydra
 from omegaconf import DictConfig
 
 from src.pipeline.data_ingestion_pipeline import DataIngestionPipeline
+from src.pipeline.data_transformation_pipeline import DataTransformationPipeline
 from src.pipeline.data_validation_pipeline import DataValidationPipeline
 
 
@@ -13,8 +14,13 @@ def main(cfg: DictConfig) -> None:
     print(f"STATE {STATE} completed")
 
     STATE = "DATA VALIDATION"
-    data_validation_pipeline = DataValidationPipeline(cfg)
-    data_validation_pipeline.initiate_data_validation()
+    # data_validation_pipeline = DataValidationPipeline(cfg)
+    # data_validation_pipeline.initiate_data_validation()
+    print(f"STATE {STATE} completed")
+
+    STATE = "DATA TRANSFORMATION"
+    data_transformation_pipeline = DataTransformationPipeline(cfg)
+    data_transformation_pipeline.initiate_data_transformation()
     print(f"STATE {STATE} completed")
 
 
